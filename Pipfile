@@ -5,15 +5,16 @@ name = "pypi"
 
 [packages]
 pandas = ">=2.0"
-requests = "*"
-python-dotenv = "*"
+requests = ">=2.31"
+python-dotenv = ">=1.0"
 numpy = ">=1.25"
 plotly = ">=5.0"
-kaleido = "*"
+kaleido = ">=0.2.1"
+playwright = ">=1.40"
 
 [dev-packages]
-jupyter = "*"
-ipykernel = "*"
+jupyter = ">=1.0"
+ipykernel = ">=6.0"
 
 [requires]
 python_version = "3.12"
