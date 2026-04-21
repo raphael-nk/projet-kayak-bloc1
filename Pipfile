@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 pandas = "*"
 requests = "*"
+python-dotenv = "*"
+numpy = "*"
+plotly = "*"
 
 [dev-packages]
 ipykernel = "*"
