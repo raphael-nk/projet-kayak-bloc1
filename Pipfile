@@ -9,6 +9,7 @@ requests = "*"
 python-dotenv = "*"
 numpy = ">=1.25"
 plotly = ">=5.0"
+kaleido = "*"
 
 [dev-packages]
 jupyter = "*"
