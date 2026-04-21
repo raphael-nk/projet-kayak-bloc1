@@ -4,13 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pandas = "*"
+pandas = ">=2.0"
 requests = "*"
 python-dotenv = "*"
-numpy = "*"
-plotly = "*"
+numpy = ">=1.25"
+plotly = ">=5.0"
 
 [dev-packages]
+jupyter = "*"
 ipykernel = "*"
 
 [requires]
