@@ -13,6 +13,8 @@ kaleido = ">=0.2.1"
 playwright = ">=1.40"
 boto3 = "*"
 matplotlib = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 jupyter = ">=1.0"
