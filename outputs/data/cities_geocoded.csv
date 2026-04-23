@@ -5,7 +5,7 @@ city_id,city_name,query,latitude,longitude,display_name,osm_type,osm_id,class,ty
 4,Le Havre,"Le Havre, France",49.4938975,0.1079732,"Le Havre, Seine-Maritime, Normandie, France métropolitaine, France",relation,104492,,administrative,True
 5,Rouen,"Rouen, France",49.4404591,1.0939658,"Rouen, Seine-Maritime, Normandie, France métropolitaine, France",relation,75628,,administrative,True
 6,Paris,"Paris, France",48.8588897,2.320041,"Paris, Île-de-France, France métropolitaine, France",relation,7444,,administrative,True
-7,Amiens,"Amiens, France",49.8941708,2.2956951,"Amiens, Somme, Hauts-de-France, France métropolitaine, 80000, France",relation,114347,,administrative,True
+7,Amiens,"Amiens, France",49.8941708,2.2956951,"Amiens, Somme, Hauts-de-France, France métropolitaine, France",relation,114347,,administrative,True
 8,Lille,"Lille, France",50.6365654,3.0635282,"Lille, Nord, Hauts-de-France, France métropolitaine, France",relation,58404,,administrative,True
 9,Strasbourg,"Strasbourg, France",48.584614,7.7507127,"Strasbourg, Bas-Rhin, Collectivité européenne d'Alsace, Grand Est, France métropolitaine, France",relation,71033,,administrative,True
 10,Chateau du Haut Koenigsbourg,"Chateau du Haut Koenigsbourg, France",48.249382,7.3439412,"Château du Haut-Kœnigsbourg, D 159, Schaflager, Orschwiller, Sélestat-Erstein, Bas-Rhin, Collectivité européenne d'Alsace, Grand Est, France métropolitaine, 67600, France",way,1299451538,,castle,True
@@ -31,6 +31,6 @@ city_id,city_name,query,latitude,longitude,display_name,osm_type,osm_id,class,ty
 30,Ariege,"Ariege, France",42.9455368,1.4065544,"Ariège, Occitanie, France métropolitaine, France",relation,7439,,administrative,True
 31,Toulouse,"Toulouse, France",43.6044638,1.4442433,"Toulouse, Haute-Garonne, Occitanie, France métropolitaine, France",relation,35738,,administrative,True
 32,Montauban,"Montauban, France",44.0175835,1.3549991,"Montauban, Tarn-et-Garonne, Occitanie, France métropolitaine, 82000, France",relation,137735,,administrative,True
-33,Biarritz,"Biarritz, France",43.4711438,-1.5527266,"Biarritz, Bayonne, Pyrénées-Atlantiques, Nouvelle-Aquitaine, France métropolitaine, 64200, France",relation,4615703,,political,True
+33,Biarritz,"Biarritz, France",43.4832523,-1.5592776,"Biarritz, Bayonne, Pyrénées-Atlantiques, Nouvelle-Aquitaine, France métropolitaine, 64200, France",relation,166717,,administrative,True
 34,Bayonne,"Bayonne, France",43.4945144,-1.4736657,"Bayonne, Pyrénées-Atlantiques, Nouvelle-Aquitaine, France métropolitaine, 64100, France",relation,166713,,administrative,True
 35,La Rochelle,"La Rochelle, France",46.159732,-1.1515951,"La Rochelle, Charente-Maritime, Nouvelle-Aquitaine, France métropolitaine, 17000, France",relation,117858,,administrative,True
