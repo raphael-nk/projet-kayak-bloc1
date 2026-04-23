@@ -1,4 +1,6 @@
 __pycache__/
 .env
 *.ipynb_checkpoints
-.claude/
+logs/
+outputs/data/*
+!outputs/data/top20_booking_hotels.csv
