@@ -1,6 +1,14 @@
+![Logo Kayak](images/kayak-logo.png)
+
 # Bloc1 - Data Collection & Management
 
 # Projet KAYAK
+
+## À propos de Kayak
+
+Kayak est un moteur de recherche de voyages qui aide les utilisateurs et utilisatrices à préparer leur prochain séjour au meilleur prix, en comparant notamment les offres de transports, d'hébergements et de locations.
+
+Ce dépôt correspond au **bloc 1** du parcours data science fullstack : collecte et gestion des données pour alimenter des recommandations (destinations et hôtels en France).
 
 ## 1. Objectif du projet
 
@@ -47,6 +55,9 @@ Les recommandations s'appuient sur des donnees reelles:
 - **Jupyter Notebook**: ideal pour un workflow data iteratif, pedagogique et facilement demonstrable.
 - **Pandas / NumPy**: manipulation tabulaire, nettoyage, calculs de score.
 
+### Gestion d'environnement
+- **uv**: installation rapide et verrouillage des dependances (`uv.lock`), remplace Pipenv pour ce projet.
+
 ### Collecte de donnees
 - **Requests**: appels API (OpenWeatherMap, geocodage selon notebook).
 - **Playwright**: scraping Booking avec rendu JavaScript et meilleure robustesse qu'un simple parser HTML.
@@ -66,6 +77,8 @@ Les recommandations s'appuient sur des donnees reelles:
 
 ## 6. Structure du projet
 
+- `images/kayak-logo.png` : logo Kayak (README)
+- `pyproject.toml` / `uv.lock` : dependances Python gerees par **uv**
 - `notebooks/01_scope_geocoding_nominatim.ipynb`
 - `notebooks/02_weather_scoring_top5_map.ipynb`
 - `notebooks/03_booking_scraping_playwright.ipynb`
@@ -79,23 +92,53 @@ Les recommandations s'appuient sur des donnees reelles:
 ## 7. Prerequis
 
 - Python 3.12
-- Pipenv
+- [uv](https://docs.astral.sh/uv/) installe sur la machine
 - Acces internet
 - Compte AWS avec:
   - un bucket S3
   - une instance RDS PostgreSQL
 - Cle API OpenWeatherMap
 
+### Installer uv (Linux / macOS)
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Puis verifier :
+
+```bash
+uv --version
+```
+
 ## 8. Configuration
 
 ### 8.1 Installation des dependances
 
+A la racine du depot :
+
 ```bash
-pipenv install
-pipenv run playwright install chromium
+cd /chemin/vers/projet-kayak-bloc1
+uv sync
+uv run playwright install chromium
 ```
 
-### 8.2 Variables d'environnement
+Pour aligner explicitement la version de Python du projet :
+
+```bash
+uv python pin 3.12
+uv sync
+```
+
+### 8.2 Kernel Jupyter (recommande pour Cursor / VS Code)
+
+```bash
+uv run python -m ipykernel install --user --name projet-kayak-uv --display-name "Python (uv kayak)"
+```
+
+Selectionne ensuite le kernel **Python (uv kayak)** dans ton IDE ou Jupyter.
+
+### 8.3 Variables d'environnement
 
 Copier `.env.dist` vers `.env`, puis renseigner:
 
@@ -116,7 +159,13 @@ AWS_RDS_DATABASE=your_database
 
 ## 9. Execution pas a pas
 
-Executer les notebooks dans cet ordre avec le kernel Pipenv:
+1. Lancer Jupyter avec l'environnement **uv** :
+
+```bash
+uv run jupyter lab
+```
+
+2. Executer les notebooks dans cet ordre avec le kernel **Python (uv kayak)** (ou le kernel pointant vers `.venv`) :
 
 1. `notebooks/01_scope_geocoding_nominatim.ipynb`
 2. `notebooks/02_weather_scoring_top5_map.ipynb`
@@ -153,7 +202,7 @@ Executer les notebooks dans cet ordre avec le kernel Pipenv:
 - Le scraping Booking peut etre sensible aux mecanismes anti-bot.
 - L'export PNG des cartes Plotly avec tuiles web peut parfois echouer selon le provider.
 - Les donnees hotels evoluent dans le temps (disponibilite, score, URL).
-- Le scraping peut prendre quelques temps (en general 12mn avec 6 top hotels par pays)
+- Le scraping peut prendre quelques temps (en general ~12 min avec 6 hotels par ville pour les destinations selectionnees).
 
 ## 13. Pistes d'amelioration
 
