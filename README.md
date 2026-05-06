@@ -214,3 +214,10 @@ Executer les notebooks dans cet ordre :
 - Convertir les notebooks en scripts `.py`.
 - Orchestrer le pipeline (Airflow).
 - Ajouter des tests de qualité de données (schéma, valeurs nulles, doublons).
+
+## 14. Auteur
+
+Projet réalisé dans le cadre du Bloc 1 — Data Collection & Management à Jedha Bootcamp.
+
+- By RANJAKASOA Raphaël Marcellin
+
