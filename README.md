@@ -60,7 +60,8 @@ Les recommandations s'appuient sur des données réelles :
 
 ### Gestion d'environnement
 
-- **uv** : installation rapide et verrouillage des dépendances (`uv.lock`).
+- **venv + pip** : environnement virtuel standard + installation via `requirements.txt`.
+- *(optionnel)* **uv** : alternative rapide pour synchroniser les dépendances à partir de `pyproject.toml` / `uv.lock`.
 
 ### Collecte de données
 
@@ -86,7 +87,8 @@ Les recommandations s'appuient sur des données réelles :
 ## 6. Structure du projet
 
 - `images/kayak-logo.png` : logo Kayak (README)
-- `pyproject.toml` / `uv.lock` : dépendances Python gérées par **uv**
+- `requirements.txt` : dépendances Python (installation via `pip install -r requirements.txt`)
+- `pyproject.toml` / `uv.lock` : dépendances (optionnel, si avec **uv**)
 - `notebooks/01_scope_geocoding_nominatim.ipynb`
 - `notebooks/02_weather_scoring_top5_map.ipynb`
 - `notebooks/03_booking_scraping_playwright.ipynb`
@@ -100,24 +102,12 @@ Les recommandations s'appuient sur des données réelles :
 ## 7. Prérequis
 
 - Python 3.12
-- [uv](https://docs.astral.sh/uv/) installé sur la machine
+- `pip` (inclus avec Python) + `venv` (module standard)
 - Accès Internet
 - Compte AWS avec :
   - un compartiment S3 ;
   - une instance RDS PostgreSQL.
 - Clé API OpenWeatherMap
-
-### Installer uv (Linux / macOS)
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-Puis vérifier :
-
-```bash
-uv --version
-```
 
 ## 8. Configuration
 
@@ -127,16 +117,23 @@ uv --version
 
 ```bash
 cd /chemin/vers/projet-kayak-bloc1
-uv sync
-uv run playwright install chromium
+
+# 1) Créer / activer un environnement virtuel
+python3.12 -m venv .venv
+source .venv/bin/activate
+
+# 2) Mettre pip à jour puis installer les dépendances
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+# 3) Installer le navigateur requis pour le scraping Booking
+playwright install chromium
 ```
 
-Pour épingler explicitement la version de Python du projet :
+Notes :
 
-```bash
-uv python pin 3.12
-uv sync
-```
+- `requirements.txt` est exporté depuis `uv` (sans hashes). Si avec `uv`, on peux utiliser `uv sync`.
+- Si `python3.12` n’existe pas sur ta machine, remplace par `python3` (en t’assurant d’être bien en Python 3.12).
 
 ### 8.2 Kernel Jupyter 
 
@@ -163,7 +160,12 @@ AWS_RDS_DATABASE=your_database
 
 ## 9. Exécution pas à pas
 
-1. Lancer Jupyter avec l'environnement **uv** :
+1. Lancer Jupyter avec l'environnement virtuel :
+
+```bash
+source .venv/bin/activate
+jupyter lab
+```
 
 Executer les notebooks dans cet ordre :
 
